@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SUGAR COSMETICS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+ <header>
+  <div class="logo"><strong>SUGAR</strong></div>
+  <nav>
+ 
+    <div class="search-container">
+      <input type="text" id="search-bar" required placeholder=" " />
+      <label for="search-bar">What are you looking for?</label>
+    </div>
+
+    <ul class="nav-links">
+      <li class="dropdown">
+  <div class="dropdown-toggle"><li><a href="#">Categories<span>&#9662;</span></a></li></div>
+  <ul class="dropdown-menu">
+    <li data-category="lipstick">Lipsticks</li>
+    <li data-category="lipbalm">Lip Balm</li>
+    <li data-category="makeup">Makeup</li>
+    <li data-category="skincare">Skincare</li>
+    <li data-category="luxe">Luxe Products</li>
+  </ul>
+</li>
+
+
+      <li><a href="#">Brands</a></li>
+      <li><a href="#">Offers</a></li>
+      <li><a href="#">New to SUGAR</a></li>
+      <li><a href="#">Profile</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+  <section class="carousel-wrapper">
+    <button class="arrow left">&#10094;</button>
+    <div class="carousel-track">
+      <div class="grid-item big"><img src="images/img4.jpg" alt=""></div>
+      <div class="grid-item big"><img src="images/sale5.jpg" alt=""></div>
+      <div class="grid-item big"><img src="images/sale3.jpg" alt=""></div>
+      <div class="grid-item big"><img src="images/sale4.jpg" alt=""></div>
+      <div class="grid-item big"><img src="images/sale2.jpg" alt=""></div>
+    </div>
+    <button class="arrow right">&#10095;</button>
+    <div class="carousel-indicators">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
+  <section class="small-grid">
+    <div class="grid-item small" data-category="makeup"><img src="images/img5.jpg" alt=""><h3>Blush</h3></div>
+    <div class="grid-item small" data-category="makeup"><img src="images/img6.jpg" alt=""><h3>Compact</h3></div>
+    <div class="grid-item small" data-category="skincare"><img src="images/img7.jpg" alt=""><h3>Skincare</h3></div>
+    <div class="grid-item small" data-category="luxe"><img src="images/img8.jpg" alt=""><h3>Perfume</h3></div>
+  </section>
+
+  <section class="small-grid">
+    <div class="grid-item small" data-category="lipstick"><img src="images/img9.jpg" alt=""><h2>Lipstick</h2></div>
+    <div class="grid-item small" data-category="lipbalm"><img src="images/img10.jpg" alt=""><h2>Lip Balm</h2></div>
+    <div class="grid-item small" data-category="skincare"><img src="images/img11.jpg" alt=""><h2>Skincare</h2></div>
+    <div class="grid-item small" data-category="luxe"><img src="images/img12.jpg" alt=""><h2>Luxe Oil</h2></div>
+  </section>
+
+  <footer>
+    &copy; 2025 SUGAR COSMETICS| Designed by Sugarteam
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
