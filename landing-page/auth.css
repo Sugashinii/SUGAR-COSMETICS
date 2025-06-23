@@ -1,0 +1,89 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff0f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}.form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-top: 8px solid #ec4899;
+}
+
+h2 {
+  color: #ec4899;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: 1px;}
+form {
+  display: flex;
+  flex-direction: column;}
+
+label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #444;
+}
+input {
+  margin-bottom: 1rem;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline-color: #ec4899;
+}
+button {
+  padding: 12px;
+  background: linear-gradient(90deg, #ec4899, #d7a7d0);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background: linear-gradient(90deg, #d9468f, #c88cc2);
+}
+
+p {
+  margin-top: 15px;
+  text-align: center;
+  color: #333;
+  font-size: 14px;
+}
+
+p a {
+  color: #ec4899;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}.social-signup {
+  margin-top: 1.5rem;
+  text-align: center;}
+.social-signup p {
+  color: #666;
+  margin-bottom: 0.5rem;}
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;}
+.icons img {
+  width: 36px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}.icons img:hover {
+  transform: scale(1.15);
+}
