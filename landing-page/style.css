@@ -114,7 +114,7 @@ nav {
 .dropdown-menu li {
   padding: 10px 20px;
   cursor: pointer;
-  transition: background 0.5s;
+  transition: background 0.1s;
 }
 
 .dropdown-menu li:hover {
