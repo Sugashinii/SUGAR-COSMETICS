@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products</title>
+  <link rel="stylesheet" href="products.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="top-header">
+    <h1 class="brand-title">SUGAR COSMETICS</h1>
+    <div class="search-container">
+      <input type="text" id="search-input" required />
+      <label for="search-input">Search products...</label>
+    </div>
+  </header>
+
+  <h2 class="section-title" id="category-title">PRODUCTS</h2>
+
+  <main>
+    <!-- Filter bar -->
+    <section class="product-filters">
+      <div class="filter-group">
+        <label for="sort">Sort by:</label>
+        <select id="sort">
+          <option value="default">Relevance</option>
+          <option value="low-high">Price: Low to High</option>
+          <option value="high-low">Price: High to Low</option>
+          <option value="rating">Rating</option>
+        </select>
+      </div>
+
+      <div class="filter-group price-range-slider-group">
+        <label>Price Range:</label>
+        <div class="range-slider">
+          <div class="slider-track"></div>
+          <input type="range" min="0" max="999" value="0" id="min-range">
+          <input type="range" min="0" max="999" value="999" id="max-range">
+        </div>
+        <div class="price-values">
+          ₹<span id="range-min">0</span> – ₹<span id="range-max">999</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product cards -->
+    <div id="product-list"></div>
+  </main>
+
+  <footer class="site-footer">
+    &copy; 2025 <span>SUGAR COSMETICS</span> | Designed by Sugarteam
+  </footer>
+
+  <script src="prod-data.js"></script>
+  <script src="products.js"></script>
+</body>
+</html>
