@@ -9,12 +9,21 @@ const maxRange = document.getElementById("max-range");
 const rangeMinVal = document.getElementById("range-min");
 const rangeMaxVal = document.getElementById("range-max");
 const sliderTrack = document.querySelector(".slider-track");
+const filterBar = document.getElementById("filter-bar");
 
 let originalProducts = [];
 let currentProducts = [];
 
 function renderProducts(products) {
   productList.innerHTML = "";
+
+  if (products.length < 1) {
+    productList.innerHTML = `<p style="text-align:center;">No matching products found.</p>`;
+    filterBar.style.display = "none";
+    return;
+  }
+
+  filterBar.style.display = "flex";
 
   const itemsPerRow = 5;
   for (let i = 0; i < products.length; i += itemsPerRow) {
@@ -27,24 +36,23 @@ function renderProducts(products) {
       const card = document.createElement("div");
       card.className = "product-card";
 
-    card.innerHTML = `
-  <img src="${product.image}" alt="${product.name}">
-  <h3>${product.name}</h3>
-  <p class="price">${product.price}</p>
-  <div class="stars">
-    ${[1, 2, 3, 4, 5].map(i => {
-      if (product.rating >= i) {
-        return '<span class="star full"></span>';
-      } else if (product.rating >= i - 0.5) {
-        return '<span class="star half"></span>';
-      } else {
-        return '<span class="star empty"></span>';
-      }
-    }).join('')}
-  </div>
-  <button class="add-to-cart">Add to Cart</button>
-`;
-
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p class="price">${product.price}</p>
+        <div class="stars">
+          ${[1, 2, 3, 4, 5].map(i => {
+            if (product.rating >= i) {
+              return '<span class="star full"></span>';
+            } else if (product.rating >= i - 0.5) {
+              return '<span class="star half"></span>';
+            } else {
+              return '<span class="star empty"></span>';
+            }
+          }).join('')}
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      `;
 
       row.appendChild(card);
     });
@@ -106,20 +114,29 @@ function handleRangeInput(event) {
   applyFilters();
 }
 
+
 if (category && allProducts[category]) {
   categoryTitle.textContent = category.toUpperCase();
   originalProducts = allProducts[category];
   currentProducts = [...originalProducts];
 
-  renderProducts(currentProducts);
-  updateSliderTrack();
+  if (currentProducts.length < 1) {
+    productList.innerHTML = `<p style="text-align:center;">No products available in this category.</p>`;
+    filterBar.style.display = "none";
+  } else {
+    filterBar.style.display = "flex";
+    renderProducts(currentProducts);
+    updateSliderTrack();
 
-  sortSelect.addEventListener("change", applyFilters);
-  minRange.addEventListener("input", handleRangeInput);
-  maxRange.addEventListener("input", handleRangeInput);
+    sortSelect.addEventListener("change", applyFilters);
+    minRange.addEventListener("input", handleRangeInput);
+    maxRange.addEventListener("input", handleRangeInput);
+  }
 } else {
   productList.innerHTML = `<p style="text-align:center;">No products found for this category.</p>`;
+  filterBar.style.display = "none";
 }
+
 const searchInput = document.getElementById("search-input");
 
 if (searchInput) {

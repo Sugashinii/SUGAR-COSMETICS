@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SUGAR BEAUTY</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+
+
 </head>
 <body>
 
@@ -21,17 +24,23 @@
         <a href="#">Categories <span>&#9662;</span></a>
         <ul class="dropdown-menu">
           <li data-category="skincare">SkinCare</li>
-          <li data-category="lipbalm">Lip Balm</li>
-          <li data-category="makeup">Lip Gloss</li>
-          <li data-category="lipgloss">Lip Mask</li>
-          <li data-category="luxe">Lip Oil</li>
+          <li data-category="makeup">Makeup products</li>
+          <li data-category="lipcare">LipCare</li>
+          <li data-category="haircare">HairCare</li>
+          <li data-category="luxe">Luxe</li>
         </ul>
       </li>
 
       <li><a href="#">Brands</a></li>
       <li><a href="#">Offers</a></li>
       <li><a href="#">New to SUGAR</a></li>
-      <li><a href="login.html" class="profile-link">Profile</a></li>
+  <li>
+  <a href="login.html" class="profile-link">
+    <span class="material-symbols-rounded">account_circle</span>
+  </a>
+</li>
+
+
     </ul>
   </nav>
 </header>
@@ -60,7 +69,7 @@
 <section class="small-grid">
   <a href="products.html?category=facewash" class="grid-item small" data-category="skincare">
     <img src="images/facewash.jpeg" alt="">
-    <h3>FACE WASHES</h3>
+    <h3>CLEANSERS</h3>
   </a>
   <a href="products.html?category=serum" class="grid-item small" data-category="skincare">
     <img src="images/serum.jpeg" alt="">
@@ -78,30 +87,90 @@
 
 <h1 class="section-title">ALL ABOUT MAKEUP</h1>
 <section class="small-grid">
-  <a href="products.html?category=lipstick" class="grid-item small" data-category="lipstick">
-    <img src="images/img9.jpg" alt="">
-    <h2>Rare Beauty</h2>
+  <a href="products.html?category=lipstick" class="grid-item small" data-category="makeup">
+    <img src="images/eye.jpeg" alt="">
+    <h2>FOR EYE LOOK</h2>
   </a>
-  <a href="products.html?category=lipbalm" class="grid-item small" data-category="lipbalm">
-    <img src="images/img10.jpg" alt="">
-    <h2>Rhode</h2>
+  <a href="products.html?category=lipbalm" class="grid-item small" data-category="lipcare">
+    <img src="images/lip.jpeg" alt="">
+    <h2>FOR YOUR LIPS</h2>
   </a>
-  <a href="products.html?category=skincare" class="grid-item small" data-category="skincare">
-    <img src="images/img11.jpg" alt="">
-    <h2>707</h2>
+  <a href="products.html?category=skincare" class="grid-item small" data-category="haircare">
+    <img src="images/hhair.jpeg" alt="">
+    <h2>HAIR TOOLS</h2>
   </a>
-  <a href="products.html?category=luxe" class="grid-item small" data-category="luxe">
-    <img src="images/img12.jpg" alt="">
-    <h2>Dior</h2>
+  <a href="products.html?category=luxe" class="grid-item small" data-category="makeup">
+    <img src="images/face.jpeg" alt="">
+    <h2>FULL FACE LOOK</h2>
   </a>
 </section>
 
   
 
+<footer class="sugar-footer">
+  <div class="footer-top-band">
+    <div class="email-subscribe">
+      <label for="email">Get special discounts in your inbox:</label>
+      <input type="email" id="email" placeholder="Your Email">
+      <button>JOIN</button>
+    </div>
+    <div class="app-download">
+      <p>Experience the SUGAR app</p>
+      <img src="icons/google-play.png" alt="Google Play">
+      <img src="icons/apple-store.png" alt="App Store">
+    </div>
+    <div class="call-support">
+      <p>Need Help? Call us</p>
+      <strong>1800-420-1234</strong><br />
+      <span>(Mon–Sat, 9AM to 7PM)</span>
+    </div>
+  </div>
 
-  <footer>
-    &copy; 2025 SUGAR COSMETICS| Designed by Sugarteam
-  </footer>
+  <div class="footer-links-grid">
+    <div class="footer-col">
+      <h4>SUGAR COSMETICS</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Authenticity</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <ul>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Shipping</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Store Locator</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Terms & Privacy</a></li>
+        <li><a href="#">Sitemap</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Top Categories</h4>
+      <ul>
+        <li><a href="#">Makeup</a></li>
+        <li><a href="#">Skincare</a></li>
+        <li><a href="#">Hair</a></li>
+        <li><a href="#">Gifting</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 SUGAR COSMETICS | Designed by SugarTeam 
+  </div>
+</footer>
+
+  
   <script src="script.js"></script>
   
 

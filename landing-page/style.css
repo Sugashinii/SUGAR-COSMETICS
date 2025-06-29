@@ -76,6 +76,16 @@ header {
   color: white;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
+.profile-link .material-symbols-rounded {
+  font-size: 28px;
+  color: #e05785; /* soft pink */
+  transition: transform 0.2s ease;
+}
+
+.profile-link:hover .material-symbols-rounded {
+  transform: scale(1.1);
+  color: #ff4081; /* brighter pink on hover */
+}
 
 nav {
   display: flex;
@@ -322,4 +332,112 @@ footer {
   .arrow {
     display: none;
   }
+}
+.suga-footer {
+  background: #fff0f5;
+  color: #333;
+  font-family: 'Segoe UI', 'Poppins', sans-serif;
+  font-size: 14px;
+  margin-top: 50px;
+}
+
+.footer-top-band {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #f3c5db;
+  border-top: 1px solid #ec4899;
+  border-bottom: 1px solid #ec4899;
+}
+
+.footer-top-band > div {
+  flex: 1 1 300px;
+  margin: 10px;
+}
+
+.email-subscribe label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #d63384;
+}
+
+.email-subscribe input {
+  padding: 8px;
+  border: 1px solid #ec4899;
+  border-radius: 4px 0 0 4px;
+  width: 60%;
+  font-family: inherit;
+}
+
+.email-subscribe button {
+  padding: 8px 14px;
+  background: #ec4899;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.app-download p,
+.call-support p {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #d63384;
+}
+
+.app-download img {
+  width: 110px;
+  height: 32px;
+  object-fit: contain;
+  margin-right: 8px;
+  border-radius: 6px;
+}
+
+.footer-links-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col h4 {
+  color: #ec4899;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  color: #555;
+  transition: 0.2s;
+  text-decoration: none;
+}
+
+.footer-col ul li a:hover {
+  color: #d63384;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #f3c5db;
+  padding: 20px;
+  font-size: 13px;
+  color: #777;
 }
