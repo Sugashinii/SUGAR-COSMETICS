@@ -11,6 +11,62 @@ const allProducts = {
       name: "Simple",
       price: "₹199",
       image: "brands/simple.jpeg",
+      rating: 4.4,
+      brand: "Simple"
+    },
+      {
+      name: "Simple",
+      price: "₹199",
+      image: "brands/simple.jpeg",
+      rating: 4.2,
+      brand: "Simple"
+    },
+      {
+      name: "Simple",
+      price: "₹199",
+      image: "brands/simple.jpeg",
+      rating: 4.2,
+      brand: "Simple"
+    },
+      {
+      name: "Simple",
+      price: "₹199",
+      image: "brands/simple.jpeg",
+      rating: 4.2,
+      brand: "Simple"
+    },
+      {
+      name: "Simple",
+      price: "₹199",
+      image: "brands/simple.jpeg",
+      rating: 4.2,
+      brand: "Simple"
+    },
+      {
+      name: "Simple",
+      price: "₹199",
+      image: "brands/simple.jpeg",
+      rating: 4.2,
+      brand: "Simple"
+    },
+      {
+      name: "Simple",
+      price: "₹199",
+      image: "brands/simple.jpeg",
+      rating: 4.2,
+      brand: "Simple"
+    },
+      {
+      name: "Simple",
+      price: "₹199",
+      image: "brands/simple.jpeg",
+      rating: 4.2,
+      brand: "Simple"
+    },
+      {
+      name: "Simple",
+      price: "₹199",
+      image: "brands/simple.jpeg",
       rating: 4.2,
       brand: "Simple"
     },

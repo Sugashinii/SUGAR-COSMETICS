@@ -6,12 +6,10 @@
   <title>SUGAR BEAUTY</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
-
-
 </head>
 <body>
 
- <header>
+<header>
   <div class="logo"><strong>SUGAR</strong></div>
   <nav>
     <div class="search-container">
@@ -30,82 +28,58 @@
           <li data-category="luxe">Luxe</li>
         </ul>
       </li>
-
-      <li><a href="#">Brands</a></li>
-      <li><a href="#">Offers</a></li>
-      <li><a href="#">New to SUGAR</a></li>
-  <li>
-  <a href="login.html" class="profile-link">
-    <span class="material-symbols-rounded">account_circle</span>
-  </a>
-</li>
-
-
+      <li class="profile-wrapper">
+        <div class="profile-link" id="profile-icon">
+          <span class="material-symbols-rounded">account_circle</span>
+        </div>
+        <ul class="profile-dropdown" id="profile-dropdown">
+          <li><a href="login.html">Login</a></li>
+          <li><a href="sign-up.html">Sign Up</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="wish.html">Wishlist</a></li>
+          <li><a href="#">Premium Offers</a></li>
+          <li><a href="#">Feedback</a></li>
+          <li><a href="#">Become a Seller</a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
 </header>
 
+<section class="carousel-wrapper">
+  <button class="arrow left">&#10094;</button>
+  <div class="carousel-track">
+    <div class="grid-item big"><img src="images/img4.jpg" alt=""></div>
+    <div class="grid-item big"><img src="images/sale5.jpg" alt=""></div>
+    <div class="grid-item big"><img src="images/sale3.jpg" alt=""></div>
+    <div class="grid-item big"><img src="images/sale4.jpg" alt=""></div>
+    <div class="grid-item big"><img src="images/sale2.jpg" alt=""></div>
+  </div>
+  <button class="arrow right">&#10095;</button>
+  <div class="carousel-indicators">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
 
-
-  <section class="carousel-wrapper">
-    <button class="arrow left">&#10094;</button>
-    <div class="carousel-track">
-      <div class="grid-item big"><img src="images/img4.jpg" alt=""></div>
-      <div class="grid-item big"><img src="images/sale5.jpg" alt=""></div>
-      <div class="grid-item big"><img src="images/sale3.jpg" alt=""></div>
-      <div class="grid-item big"><img src="images/sale4.jpg" alt=""></div>
-      <div class="grid-item big"><img src="images/sale2.jpg" alt=""></div>
-    </div>
-    <button class="arrow right">&#10095;</button>
-    <div class="carousel-indicators">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  </section>
 <h1 class="section-title">ALL ABOUT SKINCARE</h1>
 <section class="small-grid">
-  <a href="products.html?category=facewash" class="grid-item small" data-category="skincare">
-    <img src="images/facewash.jpeg" alt="">
-    <h3>CLEANSERS</h3>
-  </a>
-  <a href="products.html?category=serum" class="grid-item small" data-category="skincare">
-    <img src="images/serum.jpeg" alt="">
-    <h3>SERUMS</h3>
-  </a>
-  <a href="products.html?category=moisturizer" class="grid-item small" data-category="skincare">
-    <img src="images/moisturizers.jpeg" alt="">
-    <h3>MOISTURIZERS</h3>
-  </a>
-  <a href="products.html?category=sunscreen" class="grid-item small" data-category="skincare">
-    <img src="images/sunscreen.jpeg" alt="">
-    <h3>SUNSCREENS</h3>
-  </a>
+  <a href="products.html?category=facewash" class="grid-item small"><img src="images/facewash.jpeg" alt=""><h3>CLEANSERS</h3></a>
+  <a href="products.html?category=serum" class="grid-item small"><img src="images/serum.jpeg" alt=""><h3>SERUMS</h3></a>
+  <a href="products.html?category=moisturizer" class="grid-item small"><img src="images/moisturizers.jpeg" alt=""><h3>MOISTURIZERS</h3></a>
+  <a href="products.html?category=sunscreen" class="grid-item small"><img src="images/sunscreen.jpeg" alt=""><h3>SUNSCREENS</h3></a>
 </section>
 
 <h1 class="section-title">ALL ABOUT MAKEUP</h1>
 <section class="small-grid">
-  <a href="products.html?category=lipstick" class="grid-item small" data-category="makeup">
-    <img src="images/eye.jpeg" alt="">
-    <h2>FOR EYE LOOK</h2>
-  </a>
-  <a href="products.html?category=lipbalm" class="grid-item small" data-category="lipcare">
-    <img src="images/lip.jpeg" alt="">
-    <h2>FOR YOUR LIPS</h2>
-  </a>
-  <a href="products.html?category=skincare" class="grid-item small" data-category="haircare">
-    <img src="images/hhair.jpeg" alt="">
-    <h2>HAIR TOOLS</h2>
-  </a>
-  <a href="products.html?category=luxe" class="grid-item small" data-category="makeup">
-    <img src="images/face.jpeg" alt="">
-    <h2>FULL FACE LOOK</h2>
-  </a>
+  <a href="products.html?category=lipstick" class="grid-item small"><img src="images/eye.jpeg" alt=""><h2>FOR EYE LOOK</h2></a>
+  <a href="products.html?category=lipbalm" class="grid-item small"><img src="images/lip.jpeg" alt=""><h2>FOR YOUR LIPS</h2></a>
+  <a href="products.html?category=skincare" class="grid-item small"><img src="images/hhair.jpeg" alt=""><h2>HAIR TOOLS</h2></a>
+  <a href="products.html?category=luxe" class="grid-item small"><img src="images/face.jpeg" alt=""><h2>FULL FACE LOOK</h2></a>
 </section>
-
-  
 
 <footer class="sugar-footer">
   <div class="footer-top-band">
@@ -170,9 +144,18 @@
   </div>
 </footer>
 
-  
-  <script src="script.js"></script>
-  
 
+<script>
+  document.getElementById("search-bar").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      const query = this.value.trim();
+      if (query !== "") {
+        window.location.href = `products.html?search=${encodeURIComponent(query)}`;
+      }
+    }
+  });
+</script>
+
+<script src="script.js"></script>
 </body>
 </html>

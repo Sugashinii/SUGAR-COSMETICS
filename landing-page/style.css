@@ -76,15 +76,55 @@ header {
   color: white;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
+
+.profile-wrapper {
+  position: relative;
+}
+
+.profile-link {
+  cursor: pointer;
+}
+
 .profile-link .material-symbols-rounded {
   font-size: 28px;
-  color: #e05785; /* soft pink */
+  color: #e05785;
   transition: transform 0.2s ease;
 }
 
 .profile-link:hover .material-symbols-rounded {
   transform: scale(1.1);
-  color: #ff4081; /* brighter pink on hover */
+  color: #ff4081;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 38px;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  display: none;
+  min-width: 200px;
+  z-index: 1000;
+}
+
+.profile-dropdown.show {
+  display: block;
+}
+
+.profile-dropdown a {
+  display: block;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.profile-dropdown a:hover {
+  background-color: #f3d3e0;
+  color: #ec4899;
 }
 
 nav {
@@ -145,26 +185,6 @@ nav {
 
 .dropdown:hover .dropdown-menu {
   display: block;
-}
-
-.nav-links .dropdown select {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 6px 10px;
-  font-family: inherit;
-  background: white;
-  color: #333;
-  cursor: pointer;
-  display: none;
-}
-
-.nav-links .dropdown:hover select {
-  display: block;
-  z-index: 999;
 }
 
 .carousel-wrapper {
@@ -302,40 +322,16 @@ nav {
 }
 
 footer {
-  background: #2d2d2d;
+  background: #8a8484;
   color: white;
   text-align: center;
   padding: 20px;
   font-size: 14px;
 }
 
-@media (max-width: 768px) {
-  .grid-item.big img {
-    height: 300px;
-  }
-
-  .grid-item.small img {
-    height: 140px;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 480px) {
-  .grid-item.big {
-    flex: 0 0 100vw;
-  }
-
-  .arrow {
-    display: none;
-  }
-}
 .suga-footer {
   background: #fff0f5;
-  color: #333;
+  color: #867d7d;
   font-family: 'Segoe UI', 'Poppins', sans-serif;
   font-size: 14px;
   margin-top: 50px;
@@ -440,4 +436,33 @@ footer {
   padding: 20px;
   font-size: 13px;
   color: #777;
+}
+
+@media (max-width: 768px) {
+  .grid-item.big img {
+    height: 300px;
+  }
+
+  .grid-item.small img {
+    height: 140px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-item.big {
+    flex: 0 0 100vw;
+  }
+
+  .arrow {
+   
+    display: none;
+  }
+
+
+  
 }

@@ -2,6 +2,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get("category");
 const categoryTitle = document.getElementById("category-title");
 const productList = document.getElementById("product-list");
+const pagination = document.getElementById("pagination");
 
 const sortSelect = document.getElementById("sort");
 const minRange = document.getElementById("min-range");
@@ -12,52 +13,63 @@ const sliderTrack = document.querySelector(".slider-track");
 const filterBar = document.getElementById("filter-bar");
 
 let originalProducts = [];
-let currentProducts = [];
+let filteredProducts = [];
+let currentPage = 1;
+const productsPerPage = 10;
 
-function renderProducts(products) {
+function createProductCard(product) {
+  const card = document.createElement("div");
+  card.className = "product-card";
+  card.innerHTML = `
+    <img src="${product.image}" alt="${product.name}">
+    <h3>${product.name}</h3>
+    <p class="price">${product.price}</p>
+    <div class="stars">
+      ${[1, 2, 3, 4, 5].map(i => {
+        if (product.rating >= i) return '<span class="star full"></span>';
+        else if (product.rating >= i - 0.5) return '<span class="star half"></span>';
+        else return '<span class="star empty"></span>';
+      }).join("")}
+    </div>
+    <button class="add-to-cart">Add to Cart</button>
+  `;
+
+  const button = card.querySelector(".add-to-cart");
+  button.addEventListener("click", () => {
+    showToast("Product added to cart!");
+  });
+
+  return card;
+}
+
+
+function displayProducts() {
   productList.innerHTML = "";
+  const start = (currentPage - 1) * productsPerPage;
+  const end = start + productsPerPage;
+  const pageProducts = filteredProducts.slice(start, end);
 
-  if (products.length < 1) {
-    productList.innerHTML = `<p style="text-align:center;">No matching products found.</p>`;
-    filterBar.style.display = "none";
-    return;
-  }
+  pageProducts.forEach(product => {
+    const card = createProductCard(product);
+    productList.appendChild(card);
+  });
 
-  filterBar.style.display = "flex";
+  renderPaginationButtons();
+}
 
-  const itemsPerRow = 5;
-  for (let i = 0; i < products.length; i += itemsPerRow) {
-    const row = document.createElement("div");
-    row.className = "product-row";
-
-    const currentItems = products.slice(i, i + itemsPerRow);
-
-    currentItems.forEach(product => {
-      const card = document.createElement("div");
-      card.className = "product-card";
-
-      card.innerHTML = `
-        <img src="${product.image}" alt="${product.name}">
-        <h3>${product.name}</h3>
-        <p class="price">${product.price}</p>
-        <div class="stars">
-          ${[1, 2, 3, 4, 5].map(i => {
-            if (product.rating >= i) {
-              return '<span class="star full"></span>';
-            } else if (product.rating >= i - 0.5) {
-              return '<span class="star half"></span>';
-            } else {
-              return '<span class="star empty"></span>';
-            }
-          }).join('')}
-        </div>
-        <button class="add-to-cart">Add to Cart</button>
-      `;
-
-      row.appendChild(card);
+function renderPaginationButtons() {
+  pagination.innerHTML = "";
+  const pageCount = Math.ceil(filteredProducts.length / productsPerPage);
+  for (let i = 1; i <= pageCount; i++) {
+    const btn = document.createElement("button");
+    btn.innerText = i;
+    btn.classList.add("page-btn");
+    if (i === currentPage) btn.classList.add("active");
+    btn.addEventListener("click", () => {
+      currentPage = i;
+      displayProducts();
     });
-
-    productList.appendChild(row);
+    pagination.appendChild(btn);
   }
 }
 
@@ -67,14 +79,12 @@ function updateSliderTrack() {
   const range = maxRange.max - minRange.min;
   const left = ((min - minRange.min) / range) * 100;
   const right = ((max - minRange.min) / range) * 100;
-
   sliderTrack.style.left = `${left}%`;
   sliderTrack.style.width = `${right - left}%`;
 }
 
 function applyFilters() {
   let filtered = [...originalProducts];
-
   const min = parseInt(minRange.value);
   const max = parseInt(maxRange.value);
   filtered = filtered.filter(p => {
@@ -95,14 +105,15 @@ function applyFilters() {
   rangeMaxVal.textContent = max;
   updateSliderTrack();
 
-  currentProducts = filtered;
-  renderProducts(currentProducts);
+  filteredProducts = filtered;
+  currentPage = 1;
+  displayProducts();
+  
 }
 
 function handleRangeInput(event) {
   let min = parseInt(minRange.value);
   let max = parseInt(maxRange.value);
-
   if (max < min + 10) {
     if (event.target.id === "min-range") {
       minRange.value = max - 10;
@@ -110,43 +121,52 @@ function handleRangeInput(event) {
       maxRange.value = min + 10;
     }
   }
-
   applyFilters();
 }
-
 
 if (category && allProducts[category]) {
   categoryTitle.textContent = category.toUpperCase();
   originalProducts = allProducts[category];
-  currentProducts = [...originalProducts];
+  filteredProducts = [...originalProducts];
+  displayProducts();
+  updateSliderTrack();
+  filterBar.style.display = "flex";
 
-  if (currentProducts.length < 1) {
-    productList.innerHTML = `<p style="text-align:center;">No products available in this category.</p>`;
-    filterBar.style.display = "none";
-  } else {
-    filterBar.style.display = "flex";
-    renderProducts(currentProducts);
-    updateSliderTrack();
-
-    sortSelect.addEventListener("change", applyFilters);
-    minRange.addEventListener("input", handleRangeInput);
-    maxRange.addEventListener("input", handleRangeInput);
-  }
+  sortSelect.addEventListener("change", applyFilters);
+  minRange.addEventListener("input", handleRangeInput);
+  maxRange.addEventListener("input", handleRangeInput);
 } else {
   productList.innerHTML = `<p style="text-align:center;">No products found for this category.</p>`;
   filterBar.style.display = "none";
 }
 
 const searchInput = document.getElementById("search-input");
-
 if (searchInput) {
   searchInput.addEventListener("input", () => {
     const query = searchInput.value.toLowerCase();
-
-    const filtered = currentProducts.filter(product =>
+    const filtered = filteredProducts.filter(product =>
       product.name.toLowerCase().includes(query)
     );
-
-    renderProducts(filtered);
+    productList.innerHTML = "";
+    filtered.forEach(product => {
+      const card = createProductCard(product);
+      productList.appendChild(card);
+    });
   });
+}
+function showToast(message) {
+  let toast = document.querySelector(".toast");
+
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.className = "toast";
+    document.body.appendChild(toast);
+  }
+
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
 }
