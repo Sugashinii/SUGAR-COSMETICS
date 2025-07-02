@@ -17,10 +17,40 @@ let filteredProducts = [];
 let currentPage = 1;
 const productsPerPage = 10;
 
+function getItems(key) {
+  return JSON.parse(localStorage.getItem(key)) || [];
+}
+function saveItems(key, items) {
+  localStorage.setItem(key, JSON.stringify(items));
+}
+function addToList(key, product) {
+  const items = getItems(key);
+
+  if (key === "cart") {
+    const index = items.findIndex(item => item.name === product.name);
+    if (index !== -1) {
+      items[index].quantity = (items[index].quantity || 1) + 1;
+    } else {
+      product.quantity = 1;
+      items.push(product);
+    }
+  } else {
+    if (!items.some(item => item.name === product.name)) {
+      items.push(product);
+    }
+  }
+
+  saveItems(key, items);
+}
+
 function createProductCard(product) {
+  const wishlistItems = getItems("wishlist");
+  const isWishlisted = wishlistItems.some(item => item.name === product.name);
+
   const card = document.createElement("div");
   card.className = "product-card";
   card.innerHTML = `
+    <div class="wishlist-icon ${isWishlisted ? 'active' : ''}">&hearts;</div>
     <img src="${product.image}" alt="${product.name}">
     <h3>${product.name}</h3>
     <p class="price">${product.price}</p>
@@ -35,28 +65,37 @@ function createProductCard(product) {
   `;
 
   const button = card.querySelector(".add-to-cart");
+  button.addEventListener("click", () => {
+    addToList("cart", product);
+    showToast("Product added to cart!");
+  });
 
 
-button.addEventListener("click", () => {
-  addToList("cart", { ...product }); 
-  showToast("Product added to cart!");
-});
+  const heart = card.querySelector(".wishlist-icon");
+  heart.addEventListener("click", () => {
+    let current = getItems("wishlist");
+    const index = current.findIndex(p => p.name === product.name);
+    if (index !== -1) {
+      current.splice(index, 1);
+      heart.classList.remove("active");
+      showToast("Removed from wishlist");
+    } else {
+      current.push(product);
+      heart.classList.add("active");
+      showToast("Wishlisted!");
+    }
+    saveItems("wishlist", current);
+  });
 
   return card;
 }
-
 
 function displayProducts() {
   productList.innerHTML = "";
   const start = (currentPage - 1) * productsPerPage;
   const end = start + productsPerPage;
   const pageProducts = filteredProducts.slice(start, end);
-
-  pageProducts.forEach(product => {
-    const card = createProductCard(product);
-    productList.appendChild(card);
-  });
-
+  pageProducts.forEach(product => productList.appendChild(createProductCard(product)));
   renderPaginationButtons();
 }
 
@@ -66,8 +105,7 @@ function renderPaginationButtons() {
   for (let i = 1; i <= pageCount; i++) {
     const btn = document.createElement("button");
     btn.innerText = i;
-    btn.classList.add("page-btn");
-    if (i === currentPage) btn.classList.add("active");
+    btn.className = "page-btn" + (i === currentPage ? " active" : "");
     btn.addEventListener("click", () => {
       currentPage = i;
       displayProducts();
@@ -111,7 +149,6 @@ function applyFilters() {
   filteredProducts = filtered;
   currentPage = 1;
   displayProducts();
-  
 }
 
 function handleRangeInput(event) {
@@ -157,27 +194,17 @@ if (searchInput) {
     });
   });
 }
+
 function showToast(message) {
   let toast = document.querySelector(".toast");
-
   if (!toast) {
     toast = document.createElement("div");
     toast.className = "toast";
     document.body.appendChild(toast);
   }
-
   toast.textContent = message;
   toast.classList.add("show");
-
   setTimeout(() => {
     toast.classList.remove("show");
   }, 3000);
-}
-function addToList(listName, product) {
-  const items = JSON.parse(localStorage.getItem(listName)) || [];
-  const exists = items.some(item => item.name === product.name);
-  if (!exists) {
-    items.push(product);
-    localStorage.setItem(listName, JSON.stringify(items));
-  }
 }
