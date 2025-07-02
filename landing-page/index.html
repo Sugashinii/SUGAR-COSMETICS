@@ -12,22 +12,42 @@
 <header>
   <div class="logo"><strong>SUGAR</strong></div>
   <nav>
-    <div class="search-container">
-      <input type="text" id="search-bar" required placeholder=" " />
-      <label for="search-bar">What are you looking for?</label>
-    </div>
+   
 
     <ul class="nav-links">
-      <li class="dropdown">
-        <a href="#">Categories <span>&#9662;</span></a>
-        <ul class="dropdown-menu">
-          <li data-category="skincare">SkinCare</li>
-          <li data-category="makeup">Makeup products</li>
-          <li data-category="lipcare">LipCare</li>
-          <li data-category="haircare">HairCare</li>
-          <li data-category="luxe">Luxe</li>
-        </ul>
-      </li>
+      <li class="mega-dropdown">
+  <a href="#">Categories <span>&#9662;</span></a>
+  <div class="mega-menu">
+    <div class="mega-column">
+      <h4>Skincare</h4>
+      <ul>
+        <li><a href="products.html?category=facewash">Cleansers</a></li>
+        <li><a href="products.html?category=serum">Serums</a></li>
+        <li><a href="products.html?category=moisturizer">Moisturizers</a></li>
+        <li><a href="products.html?category=sunscreen">Sunscreens</a></li>
+      </ul>
+    </div>
+    <div class="mega-column">
+      <h4>Makeup</h4>
+      <ul>
+        <li><a href="products.html?category=lipstick">Eye Look</a></li>
+        <li><a href="products.html?category=lipbalm">Lip Products</a></li>
+        <li><a href="products.html?category=facepalette">Face Palette</a></li>
+        <li><a href="products.html?category=luxe">Luxury Makeup</a></li>
+      </ul>
+    </div>
+    <div class="mega-column">
+      <h4>Hair & More</h4>
+      <ul>
+        <li><a href="products.html?category=haircare">Haircare</a></li>
+        <li><a href="products.html?category=tools">Hair Tools</a></li>
+        <li><a href="products.html?category=gifting">Gifting</a></li>
+        <li><a href="products.html?category=offers">Offers</a></li>
+      </ul>
+    </div>
+  </div>
+</li>
+
       <li class="profile-wrapper">
         <div class="profile-link" id="profile-icon">
           <span class="material-symbols-rounded">account_circle</span>
