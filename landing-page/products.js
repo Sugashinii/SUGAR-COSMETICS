@@ -35,9 +35,12 @@ function createProductCard(product) {
   `;
 
   const button = card.querySelector(".add-to-cart");
-  button.addEventListener("click", () => {
-    showToast("Product added to cart!");
-  });
+
+
+button.addEventListener("click", () => {
+  addToList("cart", { ...product }); 
+  showToast("Product added to cart!");
+});
 
   return card;
 }
@@ -169,4 +172,12 @@ function showToast(message) {
   setTimeout(() => {
     toast.classList.remove("show");
   }, 3000);
+}
+function addToList(listName, product) {
+  const items = JSON.parse(localStorage.getItem(listName)) || [];
+  const exists = items.some(item => item.name === product.name);
+  if (!exists) {
+    items.push(product);
+    localStorage.setItem(listName, JSON.stringify(items));
+  }
 }
