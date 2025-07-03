@@ -34,7 +34,6 @@ function renderList(listName) {
     container.innerHTML = `<p style="grid-column: 1 / -1; text-align: center;">No items in ${listName} yet!</p>`;
     return;
   }
-
   let total = 0;
 
   items.forEach(item => {
@@ -56,7 +55,7 @@ function renderList(listName) {
       <h3>${item.name}</h3>
       <p class="price">${item.price}</p>
 
-      <label>Quantity:
+      <label style="display:block; margin:10px 0;">Quantity:
         <select onchange="updateQuantity('${listName}', '${item.name}', this.value)">
           ${options}
         </select>
@@ -69,7 +68,7 @@ function renderList(listName) {
     container.appendChild(card);
   });
 
-  if (summary) {
+  if (summary && listName === "cart") {
     summary.innerHTML = `<h2>Total: ₹${total}</h2>`;
   }
 }

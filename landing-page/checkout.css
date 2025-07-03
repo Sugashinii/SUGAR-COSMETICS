@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff0f5;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main
+  {flex: 1;}
+
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: linear-gradient(to right, #ec4899, #d63384);
+  color: white;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.brand-title {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 40px 0 20px;
+  color: #e91e63;
+  font-family: 'Poppins', sans-serif;
+}
+
+.checkout-container {
+  display: flex;
+  gap: 40px;
+  padding: 30px 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#checkout-form {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+#checkout-form h2 {
+  color: #d63384;
+  margin-bottom: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+
+#checkout-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+#checkout-form button {
+  background-color: #ec4899;
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#checkout-form button:hover {
+  background-color: #d63384;
+}
+
+.order-summary {
+  flex: 1;
+  min-width: 280px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.order-summary h2 {
+  color: #d63384;
+  margin-bottom: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+
+#order-items p {
+  margin: 10px 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 25px;
+  color: #e91e63;
+  text-align: right;
+}
+
+.site-footer {
+  background: #2d2d2d;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .checkout-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  #checkout-form,
+  .order-summary {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .total {
+    text-align: left;
+  }
+}

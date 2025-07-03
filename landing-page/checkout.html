@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Cart - Sugar Beauty</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - Sugar Beauty</title>
   <link rel="stylesheet" href="cartwish.css" />
 </head>
 <body>
@@ -16,19 +16,18 @@
   </header>
 
   <main>
-    <h1 class="section-title">Your Cart</h1>
+    <h1 class="section-title">Checkout</h1>
+    <div id="checkout-items" class="checkout-container"></div>
 
-    <div id="cart-items" class="cart-wishlist-container"></div>
-    <div id="cart-summary"></div>
+    <div id="checkout-summary" class="checkout-summary"></div>
+
     <div style="text-align:center; margin: 30px 0;">
-      <a href="checkout.html">
-        <button class="place-order-btn">Order Now</button>
-      </a>
+      <button class="place-order-btn" onclick="placeOrder()">Pay Now</button>
     </div>
   </main>
 
   <footer class="site-footer">© 2025 Sugar Beauty. All rights reserved.</footer>
 
-  <script src="cartwish.js"></script>
+  <script src="checkout.js"></script>
 </body>
 </html>

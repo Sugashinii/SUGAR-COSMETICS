@@ -5,60 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Products</title>
   <link rel="stylesheet" href="products.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
 </head>
 <body>
 
-          <header class="top-header">
-    <h1 class="brand-title">SUGAR COSMETICS</h1>
-    <div class="search-container">
-      <input type="text" id="search-input" required />
-      <label for="search-input">Search products...</label>
+<header class="top-header">
+  <h1 class="brand-title">SUGAR COSMETICS</h1>
+  
+  <nav class="main-nav">
+    <a href="wish.html" class="icon-link">
+      <span class="material-symbols-rounded">fav</span>
+    </a>
+
+    <a href="cart.html" class="icon-link">
+      <span class="material-symbols-rounded">cart</span>
+    </a>
+
+    <input type="text" id="search-input" placeholder="Search products...">
+  </nav>
+</header>
+
+<h2 class="section-title" id="category-title">PRODUCTS</h2>
+
+<main>
+  <section class="product-filters" id="filter-bar">
+    <div class="filter-group">
+      <label for="sort">Sort by:</label>
+      <select id="sort">
+        <option value="default">Relevance</option>
+        <option value="low-high">Price: Low to High</option>
+        <option value="high-low">Price: High to Low</option>
+        <option value="rating">Rating</option>
+      </select>
     </div>
-          </header>
 
-  <h2 class="section-title" id="category-title">PRODUCTS</h2>
- 
-
-
-  <main>
-  
-    <section class="product-filters" id="filter-bar">
-      <div class="filter-group">
-        <label for="sort">Sort by:</label>
-        <select id="sort">
-          <option value="default">Relevance</option>
-          <option value="low-high">Price: Low to High</option>
-          <option value="high-low">Price: High to Low</option>
-          <option value="rating">Rating</option>
-        </select>
+    <div class="filter-group price-range-slider-group">
+      <label>Price Range:</label>
+      <div class="range-slider">
+        <div class="slider-track"></div>
+        <input type="range" min="0" max="999" value="0" id="min-range">
+        <input type="range" min="0" max="999" value="999" id="max-range">
       </div>
-
-      <div class="filter-group price-range-slider-group">
-        <label>Price Range:</label>
-        <div class="range-slider">
-          <div class="slider-track"></div>
-          <input type="range" min="0" max="999" value="0" id="min-range">
-          <input type="range" min="0" max="999" value="999" id="max-range">
-        </div>
-        <div class="price-values">
-          ₹<span id="range-min">0</span> - ₹<span id="range-max">999</span>
-        </div>
+      <div class="price-values">
+        ₹<span id="range-min">0</span> - ₹<span id="range-max">999</span>
       </div>
-    </section>
+    </div>
+  </section>
 
-  
-    <div id="product-list"></div>
-     <div id="pagination" class="pagination-container"></div>
-  </main>
+  <div id="product-list"></div>
+  <div id="pagination" class="pagination-container"></div>
+</main>
 
-  <footer class="site-footer">
-    &copy; 2025 <span>SUGAR COSMETICS</span> | Designed by Sugarteam
-  </footer>
+<footer class="site-footer">
+  &copy; 2025 <span>SUGAR COSMETICS</span> | Designed by Sugarteam
+</footer>
 
-  <script src="prod-data.js"></script>
-  <script src="products.js"></script>
-  <div id="toast" class="toast">Product added to cart!</div>
+<script src="prod-data.js"></script>
+<script src="products.js"></script>
+
+<div id="toast" class="toast">Product added to cart!</div>
 
 </body>
 </html>
