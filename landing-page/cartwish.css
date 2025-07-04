@@ -271,3 +271,26 @@ main {
 .shop-now-btn:hover {
   background: linear-gradient(to right, #d63384, #ec4899);
 }
+.payment-container {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff0f5;
+  border: 2px solid #ec4899;
+  border-radius: 12px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.payment-container h2 {
+  text-align: center;
+  color: #d63384;
+  margin-bottom: 20px;
+}
+
+.payment-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: bold;
+  color: #444;
+}

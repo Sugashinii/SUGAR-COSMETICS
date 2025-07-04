@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment - Sugar Beauty</title>
+  <link rel="stylesheet" href="cartwish.css" />
+  <link rel="stylesheet" href="payment.css" />
+</head>
+<body>
+  <header class="top-header">
+    <div class="brand-title">SUGAR</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="section-title">Payment</h1>
+
+    <section class="form-section">
+      <h2>Shipping Address</h2>
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="text" id="address" placeholder="Address" required />
+      <input type="text" id="pincode" placeholder="Pincode" required />
+    </section>
+
+    <section class="form-section">
+      <h2>Apply Coupon</h2>
+      <div class="coupon-box">
+        <input type="text" id="coupon" placeholder="Enter coupon code" />
+        <button onclick="applyCoupon()" class="place-order-btn">Apply</button>
+        <a href="coupon.html" class="see-coupons">See Coupons</a>
+      </div>
+      <p id="coupon-message"></p>
+    </section>
+
+    <section class="payment-section hidden" id="payment-section">
+      <h2>Choose Payment Method</h2>
+      <form id="payment-form">
+        <label><input type="radio" name="payment" value="UPI" required onchange="toggleFields()"> UPI</label><br>
+        <div id="upi-field" class="payment-input hidden">
+          <input type="text" placeholder="Enter your UPI ID" />
+        </div>
+
+        <label><input type="radio" name="payment" value="Card" onchange="toggleFields()"> Credit/Debit Card</label><br>
+        <div id="card-field" class="payment-input hidden">
+          <input type="text" placeholder="Card Number" />
+          <input type="text" placeholder="Expiry (MM/YY)" />
+          <input type="text" placeholder="CVV" />
+        </div>
+
+        <label><input type="radio" name="payment" value="COD" onchange="toggleFields()"> Cash on Delivery</label><br><br>
+
+        <button type="submit" class="place-order-btn">Pay Now</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">© 2025 Sugar Beauty. All rights reserved.</footer>
+
+  <script src="payment.js"></script>
+</body>
+</html>

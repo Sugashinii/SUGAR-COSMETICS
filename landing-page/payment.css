@@ -1,0 +1,58 @@
+.form-section, .payment-section {
+  max-width: 500px;
+  margin: 20px auto;
+  background: #fff0f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(236, 72, 153, 0.2);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0 12px;
+  border: 1px solid #d63384;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.place-order-btn {
+  padding: 12px 20px;
+  background-color: #ec4899;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.place-order-btn:hover {
+  background-color: #d63384;
+}
+
+.coupon-box {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.see-coupons {
+  text-decoration: underline;
+  font-size: 14px;
+  color: #e91e63;
+}
+
+.payment-input input {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.hidden {
+  display: none;
+}

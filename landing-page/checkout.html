@@ -12,22 +12,72 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
     </nav>
   </header>
 
   <main>
     <h1 class="section-title">Checkout</h1>
-    <div id="checkout-items" class="checkout-container"></div>
 
-    <div id="checkout-summary" class="checkout-summary"></div>
+    <div id="checkout-items" class="cart-wishlist-container"></div>
 
-    <div style="text-align:center; margin: 30px 0;">
-      <button class="place-order-btn" onclick="placeOrder()">Pay Now</button>
+    <div id="checkout-summary" class="checkout-summary" style="text-align: center; font-size: 20px; font-weight: bold; color: #d63384; margin-top: 20px;"></div>
+
+    <div style="text-align: center; margin: 30px 0;">
+      <a href="payment.html">
+        <button class="place-order-btn">Pay Now</button>
+      </a>
     </div>
   </main>
 
   <footer class="site-footer">© 2025 Sugar Beauty. All rights reserved.</footer>
 
-  <script src="checkout.js"></script>
+  <script>
+    function getItems(listName) {
+      return JSON.parse(localStorage.getItem(listName)) || [];
+    }
+
+    function renderCheckout() {
+      const container = document.getElementById("checkout-items");
+      const summary = document.getElementById("checkout-summary");
+      const cart = getItems("cart");
+
+      container.innerHTML = "";
+      summary.innerHTML = "";
+
+      if (cart.length === 0) {
+        container.innerHTML = `<p style="grid-column: 1 / -1; text-align: center;">Your cart is empty.</p>
+        <div style="text-align:center; margin-top: 20px;">
+          <a href="products.html"><button class="place-order-btn">Shop Now</button></a>
+        </div>`;
+        return;
+      }
+
+      let total = 0;
+
+      cart.forEach(item => {
+        const quantity = item.quantity || 1;
+        const price = parseInt(item.price.replace("₹", ""));
+        const subtotal = price * quantity;
+        total += subtotal;
+
+        const card = document.createElement("div");
+        card.className = "item-card";
+        card.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <h3>${item.name}</h3>
+          <p class="price">${item.price}</p>
+          <p>Qty: ${quantity}</p>
+          <p class="subtotal">Subtotal: ₹${subtotal}</p>
+        `;
+
+        container.appendChild(card);
+      });
+
+      summary.innerHTML = `<h2>Total Amount: ₹${total}</h2>`;
+    }
+
+    document.addEventListener("DOMContentLoaded", renderCheckout);
+  </script>
 </body>
 </html>
