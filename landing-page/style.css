@@ -331,7 +331,7 @@ footer {
 
 .suga-footer {
   background: #fff0f5;
-  color: #867d7d;
+  color: #5d5757;
   font-family: 'Segoe UI', 'Poppins', sans-serif;
   font-size: 14px;
   margin-top: 50px;
@@ -404,7 +404,7 @@ footer {
 }
 
 .footer-col h4 {
-  color: #ec4899;
+  color: #a65a80;
   margin-bottom: 12px;
   font-size: 16px;
   font-weight: 700;
@@ -426,7 +426,7 @@ footer {
 }
 
 .footer-col ul li a:hover {
-  color: #d63384;
+  color: #b06189;
   text-decoration: underline;
 }
 
@@ -525,4 +525,73 @@ footer {
 
 .mega-column a:hover {
   color: #d63384;
+}
+.top-header {
+  background: linear-gradient(to right, #f472b6, #ec4899);
+  padding: 10px 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.hamburger {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #fff0f5;
+    width: 100%;
+  }
+
+  .main-nav.show-nav {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .mega-menu {
+    position: static;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .mega-column h4 {
+    color: #ec4899;
+  }
 }

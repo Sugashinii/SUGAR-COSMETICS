@@ -56,3 +56,67 @@ input[type="email"] {
 .hidden {
   display: none;
 }
+
+#payment-form {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 4px;
+  color: #b93b8f;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #e85ca6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d84c9a;
+}
+
+.hidden {
+  display: none;
+}
+
+.payment-option {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#coupon-message {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  #payment-form {
+    padding: 10px;
+  }
+
+  button {
+    width: 100%;
+  }
+}

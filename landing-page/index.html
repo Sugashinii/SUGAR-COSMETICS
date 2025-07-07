@@ -9,44 +9,47 @@
 </head>
 <body>
 
-<header>
-  <div class="logo"><strong>SUGAR</strong></div>
-  <nav>
-   
+<header class="top-header">
+  <div class="header-container">
+    <div class="logo"><strong>SUGAR</strong></div>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+  </div>
 
+  <nav class="main-nav" id="main-nav">
     <ul class="nav-links">
       <li class="mega-dropdown">
-  <a href="#">Categories <span>&#9662;</span></a>
-  <div class="mega-menu">
-    <div class="mega-column">
-      <h4>Skincare</h4>
-      <ul>
-        <li><a href="products.html?category=facewash">Cleansers</a></li>
-        <li><a href="products.html?category=serum">Serums</a></li>
-        <li><a href="products.html?category=moisturizer">Moisturizers</a></li>
-        <li><a href="products.html?category=sunscreen">Sunscreens</a></li>
-      </ul>
-    </div>
-    <div class="mega-column">
-      <h4>Makeup</h4>
-      <ul>
-        <li><a href="products.html?category=lipstick">Eye Look</a></li>
-        <li><a href="products.html?category=lipbalm">Lip Products</a></li>
-        <li><a href="products.html?category=facepalette">Face Palette</a></li>
-        <li><a href="products.html?category=luxe">Luxury Makeup</a></li>
-      </ul>
-    </div>
-    <div class="mega-column">
-      <h4>Hair & More</h4>
-      <ul>
-        <li><a href="products.html?category=haircare">Haircare</a></li>
-        <li><a href="products.html?category=tools">Hair Tools</a></li>
-        <li><a href="products.html?category=gifting">Gifting</a></li>
-        <li><a href="products.html?category=offers">Offers</a></li>
-      </ul>
-    </div>
-  </div>
-</li>
+        <a href="#">Categories <span>&#9662;</span></a>
+        <div class="mega-menu">
+          <!-- Mega menu content -->
+          <div class="mega-column">
+            <h4>Skincare</h4>
+            <ul>
+              <li><a href="products.html?category=facewash">Cleansers</a></li>
+              <li><a href="products.html?category=serum">Serums</a></li>
+              <li><a href="products.html?category=moisturizer">Moisturizers</a></li>
+              <li><a href="products.html?category=sunscreen">Sunscreens</a></li>
+            </ul>
+          </div>
+          <div class="mega-column">
+            <h4>Makeup</h4>
+            <ul>
+              <li><a href="products.html?category=lipstick">Eye Look</a></li>
+              <li><a href="products.html?category=lipbalm">Lip Products</a></li>
+              <li><a href="products.html?category=facepalette">Face Palette</a></li>
+              <li><a href="products.html?category=luxe">Luxury Makeup</a></li>
+            </ul>
+          </div>
+          <div class="mega-column">
+            <h4>Hair & More</h4>
+            <ul>
+              <li><a href="products.html?category=haircare">Haircare</a></li>
+              <li><a href="products.html?category=tools">Hair Tools</a></li>
+              <li><a href="products.html?category=gifting">Gifting</a></li>
+              <li><a href="products.html?category=offers">Offers</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
 
       <li class="profile-wrapper">
         <div class="profile-link" id="profile-icon">
@@ -65,6 +68,7 @@
     </ul>
   </nav>
 </header>
+
 
 <section class="carousel-wrapper">
   <button class="arrow left">&#10094;</button>
@@ -165,17 +169,17 @@
 </footer>
 
 
+
+
+<script src="script.js"></script>
 <script>
-  document.getElementById("search-bar").addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-      const query = this.value.trim();
-      if (query !== "") {
-        window.location.href = `products.html?search=${encodeURIComponent(query)}`;
-      }
-    }
+  const hamburger = document.getElementById("hamburger");
+  const mainNav = document.getElementById("main-nav");
+
+  hamburger.addEventListener("click", () => {
+    mainNav.classList.toggle("show-nav");
   });
 </script>
 
-<script src="script.js"></script>
 </body>
 </html>
